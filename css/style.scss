@@ -1,0 +1,276 @@
+@import "setup";
+
+$brick: url("../images/brickwall/brickwall.png");
+
+@mixin clearfixed {
+	&::after{
+		visibility: hidden; 
+		display: block; 
+		font-size: 0; 
+		content: " "; 
+		clear: both; 
+		height: 0;
+	}
+}
+
+@mixin bricked {
+	background-image: $brick;
+	background-attachment: fixed;
+}
+
+body{
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	position: absolute;
+	left: -500px;
+	top: -100px;
+}
+
+
+	nav {
+		background: rgba(255, 255, 255, .9);
+		position: fixed;
+		top: 0;
+		width: 100%;
+		border-bottom: 2px solid #fff;
+		z-index:10;
+	
+
+		a {
+			text-decoration: none;
+			color: rgb(160, 160, 160);
+
+			&:hover {
+				color: rgb(0, 0, 0);
+			}
+		}
+}
+
+	li {
+		text-transform: uppercase;
+		display: inline-block;
+		padding: 20px 30px;
+	}
+.header {
+	@include bricked;
+	height: 450px;
+	position: relative;
+	margin-top: 60px;
+
+	.maker-industries {
+		padding: 200px 0;
+		text-transform: uppercase;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+
+	}
+
+	.maker{
+		line-height: .6em;
+		font-size: 6.2em;
+		color: #3F3F3F;
+	}
+
+	.industries {
+		font-size: 3.7em;
+		color: rgb(132, 132, 132);
+	}
+
+}
+
+.about-us {
+	padding: 60px 0;
+	color: black;
+
+	@include clearfixed;
+
+	.about-us-description {
+		float: left;
+		width: 28%;
+		margin: 40px 2.5%;
+
+		.title {
+			color: #3F3F3F;
+			text-transform: uppercase;
+			font-size: 24px;
+			padding-bottom: 10px;
+		}
+		
+		.description {
+			font-size: 18px;
+			color: rgb(160, 160, 160);
+			font-weight: 300;
+			text-align: justify;
+			line-height: 1.5;
+		}
+	}
+
+}
+
+.gallery {
+	padding-top: 80px;
+}
+
+.gallery-cell{
+	position: absolute;
+	height: 400px;
+}
+
+.gallery-cell img{
+	height: 400px;
+}
+
+.services {
+	padding-top: 60px;
+	padding-bottom: 0px;
+	
+	.services-description{
+		display: block;
+		width: 70%;
+		margin: 10px auto;
+		text-align: justify;
+		color: rgb(132, 132, 132);
+		font-weight: 300;
+		font-size: 22px;
+		padding: 20px 0 60px;
+
+		h2{
+			text-align: center;
+		}
+
+		p{
+			margin-top: 20px;
+			line-height: 1.5;
+		}
+	}
+
+	.services-circles{
+		@include clearfixed;
+		width: 900px;
+		margin: 0 auto;
+	}
+
+	.circle {
+
+		@include bricked;
+
+		border: 2px solid rgb(230, 230, 230);
+		float: left;
+		margin-right:33px;
+		border-radius: 50%;
+		height: 200px;
+		width: 200px;
+		position: relative;
+
+		img {
+			height: 100px;
+			margin-top: 50px;
+		}
+
+		p{
+			color: rgb(140, 140, 140);
+			font-weight: 300;
+			padding: 20px;
+			font-size: 20px;
+			position: absolute;
+			top: 45px;
+			display: none;
+		}
+
+		&.launch{
+			margin-right: 0;
+
+			p{
+				top: 30px;
+			}
+		}
+
+		&:hover{
+
+			img{
+				display: none;
+			}
+			p{
+				display: block;
+			}
+		}
+	}
+
+	.services-list{ 
+		width: 100%;
+		margin: 0 auto;
+		padding-top: 60px;
+	}
+
+	.services-row{
+		li{
+			font-weight: 300;
+			display: inline-block;
+			color: rgb(160, 160, 160);
+			position: relative;
+			margin-right: 60px;
+			font-size: 20px;
+			line-height: 1.5;
+		}
+
+		li:last-child{
+			margin-right: 0;
+		}
+
+		.dotted::after {
+			margin: 0 30px;
+			position: absolute;
+			content: "";
+			height: 1px;
+			width: 1px;
+			top: 40%;
+			left: 100%;
+			border: 1px solid grey;
+			background: grey;
+		}
+	}
+
+}
+
+.contact {
+	@include clearfixed;
+	background-image: $brick;
+	background-attachment: fixed;
+	height: 500px;
+
+	.contact-form, .map{
+		margin: 80px 5% 40px 10%;
+		float: left;
+		width: 35%;
+		height: 300px;
+		border: 1px solid grey;
+		overflow: hidden;
+	}
+
+	.map {
+		margin: 80px 10% 40px 5%
+	}
+
+	.contact-form{
+		padding: 100px;
+		text-align: center;
+	}
+
+	iframe {
+		height: 300px;
+		width: 100%;
+	}
+
+	.copyright {
+		clear: both;
+		font-size: 14px;
+		color: rgb(100, 100, 100);
+		padding-top: 40px
+	}
+
+}
