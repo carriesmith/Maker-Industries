@@ -30,30 +30,31 @@ h1 {
 }
 
 
-	nav {
-		background: rgba(255, 255, 255, .9);
-		position: fixed;
-		top: 0;
-		width: 100%;
-		border-bottom: 2px solid #fff;
-		z-index:10;
-	
+nav {
+	background: rgba(255, 255, 255, .9);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	border-bottom: 2px solid #fff;
+	z-index:10;
 
-		a {
-			text-decoration: none;
-			color: rgb(160, 160, 160);
 
-			&:hover {
-				color: rgb(0, 0, 0);
-			}
+	a {
+		text-decoration: none;
+		color: rgb(160, 160, 160);
+
+		&:hover {
+			color: rgb(0, 0, 0);
 		}
+	}
 }
 
-	li {
-		text-transform: uppercase;
-		display: inline-block;
-		padding: 20px 30px;
-	}
+li {
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 20px 30px;
+}
+
 .header {
 	@include bricked;
 	height: 450px;
@@ -67,7 +68,6 @@ h1 {
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-
 	}
 
 	.maker{
