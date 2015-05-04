@@ -31,6 +31,11 @@ nav {
 	border-bottom: 2px solid #fff;
 	z-index:10;
 
+	li {
+		text-transform: uppercase;
+		display: inline-block;
+		padding: 20px 30px;
+	}
 
 	a {
 		text-decoration: none;
@@ -40,12 +45,6 @@ nav {
 			color: rgb(0, 0, 0);
 		}
 	}
-}
-
-li {
-	text-transform: uppercase;
-	display: inline-block;
-	padding: 20px 30px;
 }
 
 .header {
@@ -167,11 +166,12 @@ li {
 
 	.services-row{
 		li{
+			padding: 4px 10px;
 			font-weight: 300;
 			display: inline-block;
 			color: rgb(160, 160, 160);
 			position: relative;
-			margin-right: 60px;
+			margin: 0 10px;
 			font-size: 20px;
 			line-height: 1.5;
 		}
@@ -181,7 +181,7 @@ li {
 		}
 
 		.dotted::after {
-			margin: 0 30px;
+			margin: 0 10px;
 			position: absolute;
 			content: "";
 			height: 1px;
@@ -193,6 +193,29 @@ li {
 		}
 	}
 
+}
+
+@media(max-width: 1000px) {
+	.services{
+		width: 700px;
+		margin: 0 auto;
+
+		.services-row .dotted::after {
+			margin: 0;
+			position: absolute;
+			content: "";
+			height: 0px;
+			width: 0px;
+			top: 0;
+			left: 0;
+			border: none;
+			background: none;
+		}
+	}
+
+	.gallery {
+		clear: both;
+	}
 }
 
 .gallery {
