@@ -23,13 +23,6 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 
-h1 {
-	position: absolute;
-	left: -500px;
-	top: -100px;
-}
-
-
 nav {
 	background: rgba(255, 255, 255, .9);
 	position: fixed;
@@ -62,6 +55,7 @@ li {
 	margin-top: 60px;
 
 	.maker-industries {
+		line-height: 4.2em;
 		padding: 200px 0;
 		text-transform: uppercase;
 		position: absolute;
@@ -71,58 +65,19 @@ li {
 	}
 
 	.maker{
-		line-height: .6em;
-		font-size: 6.2em;
+		display: block;
+		font-size: 3.4em;
 		color: #3F3F3F;
 	}
 
 	.industries {
-		font-size: 3.7em;
+		display: block;
+		font-size: 2em;
+		letter-spacing: 1px;
 		color: rgb(132, 132, 132);
+		padding-left: 6px;
 	}
 
-}
-
-.about-us {
-	padding: 60px 0;
-	color: black;
-
-	@include clearfixed;
-
-	.about-us-description {
-		float: left;
-		width: 28%;
-		margin: 40px 2.5%;
-
-		.title {
-			color: #3F3F3F;
-			text-transform: uppercase;
-			font-size: 24px;
-			padding-bottom: 10px;
-		}
-		
-		.description {
-			font-size: 18px;
-			color: rgb(160, 160, 160);
-			font-weight: 300;
-			text-align: justify;
-			line-height: 1.5;
-		}
-	}
-
-}
-
-.gallery {
-	padding-top: 80px;
-}
-
-.gallery-cell{
-	position: absolute;
-	height: 400px;
-}
-
-.gallery-cell img{
-	height: 400px;
 }
 
 .services {
@@ -137,7 +92,7 @@ li {
 		color: rgb(132, 132, 132);
 		font-weight: 300;
 		font-size: 22px;
-		padding: 20px 0 60px;
+		padding: 20px 0 40px;
 
 		h2{
 			text-align: center;
@@ -151,57 +106,60 @@ li {
 
 	.services-circles{
 		@include clearfixed;
-		width: 900px;
-		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: center; // center horizontally
+		flex-wrap: wrap; // don't scale, wrap to next row
 	}
-
-	.circle {
-
+	
+	.services-circle{
 		@include bricked;
-
-		border: 2px solid rgb(230, 230, 230);
-		float: left;
-		margin-right:33px;
 		border-radius: 50%;
 		height: 200px;
 		width: 200px;
-		position: relative;
+		margin: 0 20px;
+		perspective:500px;
+		margin-top: 20px;
+
+		p, img{
+			display: block;
+			width: 100%;
+			position: absolute;
+			transition:all .5s;
+			transform: translateX(-50%) translateY(-50%);
+			top: 50%;
+      backface-visibility:hidden;
+		}
 
 		img {
-			height: 100px;
-			margin-top: 50px;
+			left: 50%;
+			height: 50%;
 		}
 
 		p{
+			font-size: 20px;
+			top: 32%;
+			padding: 0 20px;
 			color: rgb(140, 140, 140);
 			font-weight: 300;
-			padding: 20px;
-			font-size: 20px;
-			position: absolute;
-			top: 45px;
-			display: none;
+			transform: rotateY(180deg); /* By Default set the back to be rotate */
 		}
 
-		&.launch{
-			margin-right: 0;
-
-			p{
-				top: 30px;
-			}
+		&.launch p{
+			top: 25%;
 		}
 
-		&:hover{
-
-			img{
-				display: none;
-			}
-			p{
-				display: block;
-			}
+		&:hover img{
+			transform: translateX(-50%) translateY(-50%) rotateY(-180deg);
 		}
+
+		&:hover p{
+			transform:rotateY(0deg);
+		}
+
 	}
 
-	.services-list{ 
+	.services-list{
 		width: 100%;
 		margin: 0 auto;
 		padding-top: 60px;
@@ -232,6 +190,50 @@ li {
 			left: 100%;
 			border: 1px solid grey;
 			background: grey;
+		}
+	}
+
+}
+
+.gallery {
+	padding-top: 80px;
+}
+
+.gallery-cell{
+	position: absolute;
+	height: 400px;
+}
+
+.gallery-cell img{
+	height: 400px;
+}
+
+
+
+.about-us {
+	padding: 60px 0;
+	color: black;
+
+	@include clearfixed;
+
+	.about-us-description {
+		float: left;
+		width: 28%;
+		margin: 40px 2.5%;
+
+		.title {
+			color: #3F3F3F;
+			text-transform: uppercase;
+			font-size: 24px;
+			padding-bottom: 10px;
+		}
+		
+		.description {
+			font-size: 18px;
+			color: rgb(160, 160, 160);
+			font-weight: 300;
+			text-align: justify;
+			line-height: 1.5;
 		}
 	}
 
