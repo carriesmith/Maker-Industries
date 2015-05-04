@@ -55,35 +55,23 @@
 			</div>
 		</div>
 
-		<div class="services-list">
+		<ul class="services-list">
+			<li>CNC Cutting</li>
+			<li>3D CNC milling</li>
+			<li>Thermoforming</li>
+			<li>Laser cutting</li>
+			<li>3D Printing</li>
+			<li>Rotational molding</li>
+			<li>Arduino</li>
+			<li>Software development</li>
+			<li>Circuit design</li>
+			<li>3D design</li>
+			<li>Research and development</li>
+			<li>Consultation</li>
+			<li>Fabrication in any medium</li>
+			<li>Residential and commercial space modifications</li>
+		</ul>	
 
-			<ul class="services-row">
-				<li class="dotted">CNC Cutting</li>
-				<li class="dotted">3D CNC milling</li>
-				<li class="dotted">Thermoforming</li>
-				<li class="dotted">Laser cutting</li>
-				<li>3D Printing</li>
-			</ul>
-						
-			<ul class="services-row">
-				<li class="dotted">Rotational molding</li>
-				<li class="dotted">Arduino</li>
-				<li class="dotted">Software development</li>
-				<li>Circuit design</li>
-			</ul>
-
-			<ul class="services-row">
-				<li class="dotted">Consultation</li>
-				<li class="dotted">Research and development</li>
-				<li class="dotted">3D design</li>
-				<li>Fabrication in any medium</li>
-			</ul>
-			
-			<ul class="services-row">
-				<li>Residential and commercial space modifications</li>
-			</ul>	
-
-		</div>
 	</section>
 
 	<section id="gallerySection" class="gallery-section">
@@ -119,7 +107,38 @@
 		<div class="copyright">Copyright Maker Industries 2015</div>
 	</section>
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+
+		function servicesDots(){
+			$(".services-list li").each(function(){
+				if( $(this).next("li").length > 0 && $(this).offset().left < $(this).next().offset().left ){
+					$(this).addClass("dotted")
+				}else {
+					if($(this).hasClass("dotted")) $(this).removeClass("dotted")
+					console.log("Class removed")
+				}
+			});
+			console.log('Dots finished.');
+		}
+
+		// Add dot separators between service list items
+		// (not the last one though!)
+		$(function(){
+			servicesDots();
+		});
+
+		// Correct the dot separators between service list items
+		// when page is resized
+		$(window).resize(function() {
+		    clearTimeout(window.resizedFinished);
+		    window.resizedFinished = setTimeout(function(){
+		        console.log('Resized finished.');
+		        servicesDots(); // on 
+		    }, 250);
+		});
+
+	</script>
 	<script src="js/jquery.smooth-scroll.js"></script>
 	<script>
 		$(function() {
@@ -127,5 +146,6 @@
 		});	
 	</script>
 	<script src="flickity/flickity.pkgd.min.js"></script>
+
 </body>
 </html>
