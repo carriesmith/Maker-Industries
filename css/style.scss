@@ -112,14 +112,14 @@ nav {
 	}
 	
 	.services-circle{
-		@include bricked;
+		background-image: $brick;
 		border-radius: 50%;
 		height: 200px;
 		width: 200px;
 		margin: 0 20px;
 		perspective:500px;
 		margin-top: 20px;
-
+		
 		p, img{
 			display: block;
 			width: 100%;
@@ -132,7 +132,7 @@ nav {
 
 		img {
 			left: 50%;
-			height: 50%;
+			width: 50%;
 		}
 
 		p{
@@ -239,27 +239,61 @@ nav {
 	background-attachment: fixed;
 	height: 500px;
 
+	h2{
+		display: block;
+		text-transform: uppercase;
+		color: #3F3F3F;
+		font-size: 16px;
+		margin-bottom: 6px;
+	}
+
 	.contact-form, .map{
-		margin: 80px 5% 40px 10%;
 		float: left;
-		width: 35%;
+		margin: 80px 4% 40px 4%;
+		width: 42%;
 		height: 300px;
-		border: 1px solid grey;
 		overflow: hidden;
 	}
 
-	.map {
-		margin: 80px 10% 40px 5%
-	}
-
 	.contact-form{
-		padding: 100px;
 		text-align: center;
 	}
 
+	label, input, textarea{
+		display: inline-block;
+		color: #3F3F3F;
+		padding: 4px 0;
+		margin: 4px 0;
+	}
+	
+	label{
+		padding-right: 4px;
+		width: 30%;
+		text-align: right;
+	}
+	
+	input, textarea{
+		width: 68%;
+		border: 1px solid rgb(160, 160, 160);
+		border-radius: 6px;
+	}
+
+	textarea{
+		height: 145px;
+	}
+
+	input[type=submit]{
+		float: right;
+		width: 68%;
+	}
+
 	iframe {
-		height: 300px;
+		height: 290px;
 		width: 100%;
+	}
+
+	.map{
+		padding-right: 4%;
 	}
 
 	.copyright {
@@ -298,12 +332,50 @@ nav {
 }
 
 @media(max-width: 700px) {
+
+	nav{
+		li{
+			display: block;
+			padding: 4px;
+		}
+	}
+
+	.header {
+		height: 300px;
+		position: relative;
+		margin-top: 137px;
+
+		.maker-industries {
+			line-height: 3.6em;
+		}
+
+		.maker{
+			font-size: 2.8em;
+		}
+
+		.industries {
+			font-size: 1.6em;
+			letter-spacing: 1.5px;
+			padding-left: 6px;
+		}
+
+	}
+
 	.services{
 
+		.services-description{
+			font-size: 18px;
+			padding: 20px 0 20px;
+
+			h2{
+				text-align: center;
+			}
+		}
+
 		.services-circle {
-			height: 80px;
-			width: 80px;
-			margin: 8px;
+			height: 150px;
+			width: 150px;
+			margin: 10px;
 
 			img{
 				backface-visibility:visible;
@@ -311,11 +383,213 @@ nav {
 
 			p{
 				visibility: hidden;
+				color: red;
 			}
 
 			&:hover img{
-				transform: translateX(-50%) translateY(-50%) rotateY(-180deg);
+				transform: translateX(-50%) translateY(-50%) rotateY(-180deg);	
 			}
 		}
+
+		.services-list{
+			padding-top: 20px;
+		}
+
+		li{
+			font-size: 18px;
+		}
+	}
+
+	.about-us {
+		padding: 40px 0;
+
+		.about-us-description {
+			.title {
+				font-size: 20px;
+				padding-bottom: 10px;
+			}
+			
+			.description {
+				font-size: 18px;
+			}
+		}
+	}
+
+	.contact {
+		height: 760px;
+		padding-top: 10px;
+	}	
+
+	.contact textarea {
+		height: 80px;
+	}
+
+	.contact .map, .contact .contact-form{
+			display: block;
+			width: 70%;
+			margin: 20px auto;
+			height: 250px;
+			overflow: hidden;
+			float: none;
+	}
+
+	.contact .map{
+		padding: 0;
+	}
+
+	.contact {
+		height: 660px;
+
+		label{
+			width: 24%;
+			text-align: right;
+		}
+		
+		input, textarea{
+			width: 74%;
+			border: 1px solid rgb(160, 160, 160);
+			border-radius: 6px;
+		}
+	}
+
+	.contact input[type=submit]{
+		margin-top: 5px;
+		width: 74%;
+		margin-right: 2px;
+	}
+
+}
+
+@media(max-width: 525px) {
+
+	.services li{
+		display: block;
+		line-height: 1.5;
+	}
+
+	.services .dotted::after {
+		margin: 0 20px;
+		position: absolute;
+		content: "";
+		border: none;
+		background: none;
+	}
+
+	.services{
+		.services-circle {
+			height: 100px;
+			width: 100px;
+			margin: 10px;
+
+			img{
+				backface-visibility:visible;
+			}
+
+			p{
+				visibility: hidden;
+				color: red;
+			}
+
+			&:hover img{
+				transform: translateX(-50%) translateY(-50%) rotateY(0);	
+			}
+		}
+	}
+
+	.contact {
+		height: 760px;
+	}	
+
+	.contact .contact-form {
+		height: 360px;
+	}
+
+	.contact label, .contact input {
+		display: block;
+	}
+
+	.contact input, .contact textarea {
+		margin-top: 0;
+		width: 100%;
+	}
+
+	.contact label {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		text-align: left;
+	}
+
+	.contact input[type=submit]{
+		margin-top: 5px;
+		width: 100%;
+	}
+}
+
+@media(max-width: 360px) {
+	
+
+	.header {
+		height: 300px;
+		position: relative;
+		margin-top: 137px;
+
+		.maker-industries {
+			line-height: 2.6em;
+		}
+
+		.maker{
+			font-size: 2em;
+		}
+
+		.industries {
+			font-size: 1.2em;
+			letter-spacing: .6px;
+			padding-left: 6px;
+		}
+
+	}
+
+	.services {
+		padding-top: 20px;
+		padding-bottom: 0px;
+		
+		.services-description h2{
+				font-size: 20px;
+			}
+
+		.services-description	p{
+				font-size: 16px;
+			}
+
+		li{
+			margin: 0;
+			padding: 0;
+			line-height: 1.5;
+			display: block;
+			font-size: 16px;
+		}
+	}
+
+	.services .services-circle{
+		background: #fff;
+		border-radius: 50%;
+		height: 40px;
+		width: 40px;
+		margin: 8px;
+		img{
+			height: 100%;
+		}
+	}
+
+	.gallery {
+		padding-top: 20px;
+	}
+
+	.about-us .about-us-description .title {
+		font-size: 18px;
+	}
+
+	.about-us .about-us-description .description {
+		font-size: 16px;
 	}
 }
